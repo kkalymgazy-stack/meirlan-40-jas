@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мейірлан — 40 жас</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff0d5;
+    color: #10264a;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* АЛТЫН ЖАРҚЫРАҚТАР */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.star {
+    position: absolute;
+    color: #d8a83e;
+    text-shadow: 0 0 8px #f6d77b, 0 0 18px #e9bd54;
+    animation: starFly linear infinite;
+}
+
+@keyframes starFly {
+    0% {
+        transform: translateY(110vh) translateX(0) rotate(0);
+        opacity: 0;
+    }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% {
+        transform: translateY(-15vh) translateX(70px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* АШЫЛАТЫН КОНВЕРТ */
+
+#opening {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: radial-gradient(circle, #263b5e, #080e1b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: 1s;
+}
+
+.envelope {
+    width: 280px;
+    height: 190px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 35px;
+}
+
+.envelope-body {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #f4d985, #98702c);
+    border-radius: 5px;
+    box-shadow: 0 15px 50px #0008;
+}
+
+.envelope-body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 49%, #b18c40 50%, transparent 51%);
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 110px solid #f8e5a6;
+    transform-origin: top;
+    transition: 1s;
+    z-index: 5;
+}
+
+.seal {
+    position: absolute;
+    top: 70px;
+    left: 112px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff0b4, #a47c31);
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #573e13;
+    font-family: serif;
+    font-size: 25px;
+}
+
+.opening-title {
+    font-family: 'Cormorant Garamond', serif;
+    color: #f5e5a9;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.opening-text {
+    color: #e2d5ad;
+    font-size: 13px;
+    margin-top: 15px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: .4; }
+}
+
+#opening.open .flap {
+    transform: rotateX(180deg);
+}
+
+#opening.open {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* НЕГІЗГІ БЕТ */
+
+#main {
+    display: none;
+    min-height: 100vh;
+    padding: 20px 10px;
+}
+
+#main.visible {
+    display: block;
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.invitation {
+    max-width: 560px;
+    margin: auto;
+    padding: 28px 18px 35px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    background:
+    radial-gradient(ellipse at top, #fff 0%, #fff7e8 55%, #f5dfb5 100%);
+
+    border: 5px double #c69a43;
+    outline: 1px solid #e5c36f;
+    outline-offset: -12px;
+
+    box-shadow: 0 15px 55px #5b401c40;
+}
+
+/* ІШКІ АЛТЫН ЖИЕК */
+
+.invitation::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid #c69a43;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ТӘЖ */
+
+.crown {
+    font-size: 75px;
+    line-height: 1;
+    margin-bottom: 0;
+    filter: drop-shadow(0 5px 5px #a77a274d);
+}
+
+.main-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 112px;
+    font-weight: 700;
+    line-height: .9;
+    color: #bd8b24;
+    text-shadow: 2px 3px 0 #fff0b4, 0 5px 12px #a67a283d;
+}
+
+.main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 43px;
+    font-style: italic;
+    font-weight: 700;
+    color: #10264a;
+    margin-top: 0;
+}
+
+.name-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: #10264a;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.gold-ornament {
+    color: #bd8b32;
+    font-size: 27px;
+    letter-spacing: 6px;
+    margin: 15px 0;
+}
+
+.section-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    line-height: 1.25;
+    color: #10264a;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.invitation-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #10264a;
+    margin: 15px 0;
+}
+
+/* КӨЛЕМДІ ШАРЛАР */
+
+.balloon-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 18px -5px;
+    height: 100px;
+}
+
+.balloon {
+    width: 52px;
+    height: 68px;
+    border-radius: 50%;
+    position: relative;
+    box-shadow:
+        inset -12px -10px 16px #0005,
+        inset 9px 8px 14px #ffffffa0,
+        0 8px 12px #0003;
+    animation: float 3s ease-in-out infinite;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 42px;
+    background: #b49b70;
+    left: 50%;
+    top: 69px;
+}
+
+.balloon::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 21px;
+    width: 10px;
+    height: 9px;
+    background: inherit;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.balloon.blue {
+    background: radial-gradient(circle at 30% 25%, #9cc7ff, #16457e 60%, #07172f);
+}
+
+.balloon.gold {
+    background: radial-gradient(circle at 30% 25%, #fff2bd, #d29a2e 60%, #80520f);
+}
+
+.balloon.white {
+    background: radial-gradient(circle at 30% 25%, white, #eee4d3 65%, #a79a83);
+}
+
+.balloon:nth-child(2) { animation-delay: .5s; }
+.balloon:nth-child(3) { animation-delay: 1s; }
+.balloon:nth-child(4) { animation-delay: .8s; }
+
+@keyframes float {
+    50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+/* ГҮЛДЕР */
+
+.flower-row {
+    display: flex;
+    justify-content: space-around;
+    margin: 22px 0;
+}
+
+.flower {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    filter: drop-shadow(0 4px 4px #9c6b2544);
+    animation: flowerMove 4s ease-in-out infinite;
+}
+
+.petal {
+    position: absolute;
+    width: 25px;
+    height: 30px;
+    left: 15px;
+    top: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fff, #f1d49b);
+    transform-origin: 12px 27px;
+}
+
+.petal:nth-child(2) { transform: rotate(72deg); }
+.petal:nth-child(3) { transform: rotate(144deg); }
+.petal:nth-child(4) { transform: rotate(216deg); }
+.petal:nth-child(5) { transform: rotate(288deg); }
+
+.flower-center {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff3a5, #b78326);
+    left: 20px;
+    top: 19px;
+    z-index: 2;
+}
+
+@keyframes flowerMove {
+    50% { transform: translateY(-5px) rotate(8deg); }
+}
+
+/* ТОЙ ИЕЛЕРІ */
+
+.owner-panel {
+    position: relative;
+    background: linear-gradient(110deg, #071a38, #183963, #071a38);
+    border: 4px double #e1bd65;
+    border-radius: 15px;
+    padding: 16px 8px;
+    margin: 22px 0;
+    box-shadow: 0 8px 20px #0003;
+    color: #f9e7af;
+}
+
+.owner-panel small {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.owner-panel strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-style: italic;
+}
+
+/* СӘНДІК БӨЛГІШ */
+
+.divider {
+    height: 2px;
+    width: 80%;
+    margin: 20px auto;
+    background: linear-gradient(90deg, transparent, #c49a43, transparent);
+}
+
+/* ТОЙ АҚПАРАТЫ */
+
+.details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 25px 0;
+    gap: 5px;
+}
+
+.detail {
+    flex: 1;
+    color: #10264a;
+}
+
+.detail-icon {
+    font-size: 34px;
+    color: #10264a;
+    margin-bottom: 5px;
+}
+
+.detail-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #a47726;
+    margin-bottom: 6px;
+}
+
+.detail-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.detail-separator {
+    width: 2px;
+    height: 70px;
+    background: #bd8b32;
+}
+
+/* КЕРІ САНАҚ */
+
+.countdown {
+    display: flex;
+    gap: 7px;
+    margin: 25px 0;
+}
+
+.time-box {
+    flex: 1;
+    padding: 12px 3px;
+    background: #10264a;
+    border: 1px solid #d8b65c;
+    border-radius: 8px;
+    color: #f5e5a9;
+}
+
+.time-box span {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.time-box small {
+    font-size: 10px;
+}
+
+/* БАТЫРМАЛАР */
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-map {
+    background: #10264a;
+    color: #f5e5a9;
+    border: 1px solid #d8b65c;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #f1d77e, #b38b35);
+    color: #172033;
+}
+
+/* RSVP */
+
+.rsvp-section {
+    margin-top: 25px;
+}
+
+.rsvp-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    color: #10264a;
+    margin-bottom: 18px;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 12px;
+    border: 1px solid #c49a43;
+    border-radius: 9px;
+    background: #fffdf8;
+    color: #10264a;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+footer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 700;
+    color: #10264a;
+    margin-top: 25px;
+}
+
+/* МУЗЫКА */
+
+.music-button {
+    position: fixed;
+    right: 18px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #d8b65c;
+    background: #10264a;
+    color: #f5e5a9;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 50;
+    display: none;
+}
+
+.music-button.active {
+    display: block;
+}
+
+@media(max-width: 380px) {
+    .main-number { font-size: 95px; }
+    .main-title { font-size: 35px; }
+    .name-title { font-size: 39px; }
+    .detail-value { font-size: 17px; }
+    .balloon { width: 42px; height: 57px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<audio id="backgroundMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- КОНВЕРТ -->
+
+<div id="opening">
+
+    <div class="envelope" onclick="openInvitation()">
+        <div class="envelope-body"></div>
+        <div class="flap"></div>
+        <div class="seal">М</div>
+    </div>
+
+    <div class="opening-title">
+        МЕРЕЙТОЙҒА ШАҚЫРТУ
+    </div>
+
+    <div class="opening-text">
+        ХАТТЫ АШУ ҮШІН БАСЫҢЫЗ
+    </div>
+
+</div>
+
+<!-- ШАҚЫРТУ -->
+
+<div id="main">
+
+<div class="invitation">
+
+    <!-- ЖОҒАРҒЫ ШАРЛАР -->
+
+    <div class="balloon-row">
+        <div class="balloon blue"></div>
+        <div class="balloon gold"></div>
+        <div class="balloon white"></div>
+        <div class="balloon blue"></div>
+        <div class="balloon gold"></div>
+    </div>
+
+    <div class="crown">♛</div>
+
+    <div class="main-number">40</div>
+
+    <div class="main-title">Мейірлан</div>
+
+    <div class="name-title">Жас той</div>
+
+    <div class="gold-ornament">❧ ❖ ❧</div>
+
+    <div class="section-text">
+        Құрметті туыстар,<br>
+        достар, құда-құдағилар!
+    </div>
+
+    <div class="gold-ornament">✦ ❖ ✦</div>
+
+    <p class="invitation-text">
+        Мейірланның қырық жас
+        мерейтойына арналған
+        ақ дастарханымызға шақырамыз!
+    </p>
+
+    <!-- ГҮЛДЕР -->
+
+    <div class="flower-row">
+        <div class="flower">
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="flower-center"></div>
+        </div>
+
+        <div class="flower">
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="flower-center"></div>
+        </div>
+
+        <div class="flower">
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="flower-center"></div>
+        </div>
+    </div>
+
+    <!-- ТОЙ ИЕЛЕРІ -->
+
+    <div class="owner-panel">
+        <small>Той иелері:</small>
+        <strong>Мейірлан ❤️ Мархабат</strong>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- КҮНІ, УАҚЫТЫ, ОРНЫ -->
+
+    <div class="details">
+
+        <div class="detail">
+            <div class="detail-icon">▦</div>
+            <span class="detail-label">КҮНІ</span>
+            <div class="detail-value">12.12.2026 ж.</div>
+        </div>
+
+        <div class="detail-separator"></div>
+
+        <div class="detail">
+            <div class="detail-icon">◷</div>
+            <span class="detail-label">УАҚЫТЫ</span>
+            <div class="detail-value">17:00</div>
+        </div>
+
+        <div class="detail-separator"></div>
+
+        <div class="detail">
+            <div class="detail-icon">⌖</div>
+            <span class="detail-label">МЕКЕНЖАЙ</span>
+            <div class="detail-value">
+                ЖАНТӨРЕ кафесі<br>
+                Қабанбай ауылы
+            </div>
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="invitation-text">
+        Сіздердің қатысуларыңыз
+        біз үшін үлкен қуаныш!
+    </p>
+
+    <div class="gold-ornament">❧ ❖ ❧</div>
+
+    <!-- ТӨМЕНГІ ШАРЛАР -->
+
+    <div class="balloon-row">
+        <div class="balloon gold"></div>
+        <div class="balloon white"></div>
+        <div class="balloon blue"></div>
+        <div class="balloon gold"></div>
+        <div class="balloon blue"></div>
+    </div>
+
+    <!-- КЕРІ САНАҚ -->
+
+    <div class="countdown">
+
+        <div class="time-box">
+            <span id="days">00</span>
+            <small>КҮН</small>
+        </div>
+
+        <div class="time-box">
+            <span id="hours">00</span>
+            <small>САҒАТ</small>
+        </div>
+
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <small>МИНУТ</small>
+        </div>
+
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <small>СЕКУНД</small>
+        </div>
+
+    </div>
+
+    <a href="https://2gis.kz/ust-kamenogorsk"
+    target="_blank" class="btn btn-map">
+        МЕКЕНЖАЙДЫ КАРТАДАН КӨРУ
+    </a>
+
+    <div class="divider"></div>
+
+    <!-- ҚАТЫСУДЫ РАСТАУ -->
+
+    <div class="rsvp-section">
+
+        <h3>Қатысуыңызды растаңыз</h3>
+
+        <input type="text" id="guestName"
+        placeholder="Аты-жөніңіз">
+
+        <select id="guestStatus">
+            <option value="Әрине, келемін!">
+                Әрине, келемін!
+            </option>
+
+            <option value="Жұбайыммен бірге келемін">
+                Жұбайыммен бірге келемін
+            </option>
+
+            <option value="Өкінішке орай, келе алмаймын">
+                Өкінішке орай, келе алмаймын
+            </option>
+        </select>
+
+        <button onclick="sendWhatsApp()"
+        class="btn btn-submit">
+            ЖАУАПТЫ ЖІБЕРУ (WhatsApp)
+        </button>
+
+    </div>
+
+    <div class="gold-ornament">✦ ❖ ✦</div>
+
+    <footer>
+        Құрметпен, Мейірлан мен Мархабат!
+        <br><br>
+        Қуанышымызға ортақ болыңыз!
+    </footer>
+
+    <div class="flower-row">
+        <div class="flower">
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="flower-center"></div>
+        </div>
+        <div class="flower">
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="flower-center"></div>
+        </div>
+        <div class="flower">
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="petal"></div>
+            <div class="petal"></div><div class="flower-center"></div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<button id="musicButton" class="music-button"
+onclick="toggleMusic()">♫</button>
+
+<script>
+
+/* ҰШЫП ЖҮРЕТІН ЖҰЛДЫЗДАР */
+
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 45; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+    star.innerText = Math.random() > 0.5 ? "✦" : "✧";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.animationDuration = (5 + Math.random() * 10) + "s";
+    star.style.animationDelay = (Math.random() * 12) + "s";
+    star.style.fontSize = (9 + Math.random() * 15) + "px";
+    stars.appendChild(star);
+}
+
+/* ХАТТЫ АШУ ЖӘНЕ МУЗЫКА */
+
+function openInvitation() {
+    document.getElementById("opening").classList.add("open");
+    document.getElementById("main").classList.add("visible");
+    document.getElementById("musicButton").classList.add("active");
+
+    const music = document.getElementById("backgroundMusic");
+    music.play();
+
+    document.getElementById("musicButton").innerText = "♫";
+}
+
+function toggleMusic() {
+    const music = document.getElementById("backgroundMusic");
+
+    if (music.paused) {
+        music.play();
+        document.getElementById("musicButton").innerText = "♫";
+    } else {
+        music.pause();
+        document.getElementById("musicButton").innerText = "♪";
+    }
+}
+
+/* КЕРІ САНАҚ */
+
+const eventDate =
+new Date("2026-12-12T17:00:00+05:00").getTime();
+
+function updateCountdown() {
+
+    const distance = eventDate - new Date().getTime();
+
+    if (distance <= 0) {
+        ["days", "hours", "minutes", "seconds"].forEach(id => {
+            document.getElementById(id).innerText = "00";
+        });
+        return;
+    }
+
+    document.getElementById("days").innerText =
+    Math.floor(distance / 86400000);
+
+    document.getElementById("hours").innerText =
+    Math.floor((distance / 3600000) % 24);
+
+    document.getElementById("minutes").innerText =
+    Math.floor((distance / 60000) % 60);
+
+    document.getElementById("seconds").innerText =
+    Math.floor((distance / 1000) % 60);
+
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* WHATSAPP */
+
+function sendWhatsApp() {
+
+    const name =
+    document.getElementById("guestName").value.trim();
+
+    const status =
+    document.getElementById("guestStatus").value;
+
+    if (!name) {
+        alert("Аты-жөніңізді жазыңыз!");
+        return;
+    }
+
+    const phone = "77774147281";
+
+    const message =
+    `Сәлеметсіз бе! Мейірланның 40 жас мерейтойына шақырту бойынша:
+
+Қонақ: ${name}
+
+Жауабы: ${status}`;
+
+    window.open(
+        "https://wa.me/" + phone +
+        "?text=" + encodeURIComponent(message),
+        "_blank"
+    );
+
+}
+
+</script>
+ <!-- БАЙЛАНЫС БӨЛІМІ -->
+<div class="contact-section">
+    <h2>Байланыс</h2>
+    <p>Шақырту билеті бойынша сұрақтарыңыз болса, бізбен байланысыңыз!</p>
+
+    <a href="https://wa.me/77052242713?text=Сәлеметсіз%20бе!%20Шақырту%20билеті%20бойынша%20сұрағым%20бар."
+target="_blank" class="contact-btn">
+    WhatsApp арқылы жазу
+</a>
+
+</div>
+
+<style>
+.contact-section {
+    text-align: center;
+    padding: 35px 20px;
+    margin-top: 30px;
+    color: #fff;
+    background: rgba(10, 25, 60, 0.85);
+    border-top: 2px solid #d6ad55;
+}
+
+.contact-section h2 {
+    color: #f5d27a;
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.contact-section p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.contact-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 13px 25px;
+    background: linear-gradient(135deg, #f5d27a, #b88632);
+    color: #17213c;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+</style>
+
+</body>
+</html>
